@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="libs/gson-2.6.2.jar"/>
+	<classpathentry kind="lib" path="libs/okhttp-3.2.0.jar"/>
+	<classpathentry kind="lib" path="libs/okio-1.6.0.jar"/>
+	<classpathentry kind="lib" path="libs/qiniu-java-sdk-7.1.0.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
