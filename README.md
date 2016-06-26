@@ -1,6 +1,6 @@
 # MdImageResolver
 ---
-This is a Markdown tool which can upload local image file to QiQNiu service automatic.
+This is a Markdown tool which can upload local image file to QiNiu service automatic.
 
 ##Feature
 
@@ -10,11 +10,14 @@ This is a Markdown tool which can upload local image file to QiQNiu service auto
 
 ##Usage
 
+![](https://github.com/ZhaoKaiQiang/MdImageResolver/blob/master/img/demo.gif)
+
 1. Click [hear](https://github.com/ZhaoKaiQiang/MdImageResolver/blob/master/release/MdImageResolver_release_v1.0.jar) to download the jar.
 2. Execute the jar with "java -jar file_name"
 3. Input your accessKey、secretKey、bucketName and domainName。
 4. Choose the save mode
 5. Completed !
+
 
 
 ##License
