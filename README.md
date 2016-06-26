@@ -1,2 +1,11 @@
 # MdImageResolver
-解析Markdown本地图片文件，并自动完成图片文件的上传和内容的替换，图床为七牛云服务器
+---
+This is a Markdown tool which can upload local image file to QiQNiu service automatic.
+
+##Feature
+---
+
+1. Find local image file automatic
+2. Upload the local image to QiNiu service automatic
+3. Replace the markdown content with url automatic
+

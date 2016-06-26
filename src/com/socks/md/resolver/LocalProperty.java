@@ -2,8 +2,6 @@ package com.socks.md.resolver;
 
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.FileWriter;
 
 public class LocalProperty {
@@ -26,6 +24,25 @@ public class LocalProperty {
 		return null;
 	}
 
+	public static LocalProperty getLocalPropertyByConsole(){
+		String accessKey = Utils
+				.readDataFromConsole("Please input your access key:\n");
+		String secretKey = Utils
+				.readDataFromConsole("Please input your secret key:\n");
+		String bucketName = Utils
+				.readDataFromConsole("Please input your bucket name:\n");
+		String domainName = Utils
+				.readDataFromConsole("Please input your domain name:\n");
+
+		LocalProperty localProperty = new LocalProperty();
+		localProperty.setAccessKey(accessKey);
+		localProperty.setSecretKey(secretKey);
+		localProperty.setBucketName(bucketName);
+		localProperty.setDomainName(domainName);
+		localProperty.saveLocalProperty();
+		return localProperty;
+	}
+	
 	public void saveLocalProperty() {
 		File localProperties = new File(LOCAL_PROPERTIES);
 

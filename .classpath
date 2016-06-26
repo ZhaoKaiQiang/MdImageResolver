@@ -6,5 +6,6 @@
 	<classpathentry kind="lib" path="libs/okhttp-3.2.0.jar"/>
 	<classpathentry kind="lib" path="libs/okio-1.6.0.jar"/>
 	<classpathentry kind="lib" path="libs/qiniu-java-sdk-7.1.0.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

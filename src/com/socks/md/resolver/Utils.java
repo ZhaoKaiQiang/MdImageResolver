@@ -6,8 +6,46 @@ import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Utils {
+
+	private static final Pattern LOCAL_IMAGE_PATTERN = Pattern
+			.compile("!\\[.*]\\([\\w-_/]+.[png]*[jpg]*[PNG]*[jpeg]*[gif]*\\)");
+
+	private static final Pattern IMAGE_ALT_PATTERN = Pattern.compile("!\\[.*]");
+
+	/**
+	 * @return all the local image tag in blogString
+	 */
+	public static ArrayList<String> getImageTags(String blogString) {
+		ArrayList<String> tags = new ArrayList<String>();
+		Matcher matcher = LOCAL_IMAGE_PATTERN.matcher(blogString);
+		while (matcher.find()) {
+			String imageTag = matcher.group();
+			tags.add(imageTag);
+		}
+		return tags;
+	}
+
+	public static String getBackUpFileName(String mdFileName) {
+		String[] strs = mdFileName.split("\\.");
+		if (strs.length != 2) {
+			return mdFileName;
+		}
+		return strs[0] + "_bak." + strs[1];
+	}
+
+	public static String getAltFromImageTag(String imageTag) {
+		Matcher matcher = IMAGE_ALT_PATTERN.matcher(imageTag);
+		if (matcher.find()) {
+			return matcher.group().replace("![", "").replace("]", "");
+		} else {
+			return "";
+		}
+	}
 
 	public static void writeStringToFile(String content, File targetFile)
 			throws Exception {
@@ -17,12 +55,13 @@ public class Utils {
 		writer.close();
 	}
 
-	public static String getImageTagByUrl(String url) {
-		return "![](" + url + ")";
+	public static String getImageTagByUrl(String alt, String url) {
+		return "![" + alt + "](" + url + ")";
 	}
 
 	public static String getFilePathFromImageTag(String localImageTag) {
-		return localImageTag.replace("![](", "").replace(")", "");
+		return localImageTag.replace(getAltFromImageTag(localImageTag), "")
+				.replace("![](", "").replace(")", "");
 	}
 
 	public static String getStringFromFile(File file, String encode) {
